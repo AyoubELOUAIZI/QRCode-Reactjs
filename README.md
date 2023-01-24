@@ -12,7 +12,7 @@ You may also see any lint errors in the console.
 
 ![first looking](./public/screenshot_20230124_224029.png)
 
-![generate qrCode live](./public/screenshot_20230124_224120.png
+![generate qrCode live](./public/screenshot_20230124_224120.png)
 ![crud operations](./public/screenshot_20230124_224316.png)
 
 ![](./public/screenshot_20230124_224558.png)
