@@ -8,7 +8,7 @@ function QRcodeGenerator() {
     return (
         <div className="parent">
             <QRCode value={qrCodeData} /><br/>
-            <input type="text" value={qrCodeData} onChange={e => setQrCodeData(e.target.value)} />
+            <input placeholder="type some thing ..." type="text" value={qrCodeData} onChange={e => setQrCodeData(e.target.value)} />
         </div>
     );
 }

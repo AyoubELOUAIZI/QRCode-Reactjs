@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import QRCode from 'react-qr-code';
+import './QRcodeCRUD.css'
 
 const LOCAL_STORAGE_KEY = 'qr_codes';
 
@@ -8,18 +9,30 @@ function QRcodeCRUD() {
     const [newQRCodeData, setNewQRCodeData] = useState('');
     const [newDescription, setNewDescription] = useState('');
     const [editingIndex, setEditingIndex] = useState(null);
-
+    //------------------------------------------------------------------------------------------//
+    //  the first useEffect hook, the second argument is an empty array[], this
+    //   tells React that this effect should only run on the initial render of 
+    //   the component and not re - run when any of the component's props or state change.
     useEffect(() => {
+        // Retrieve the QR codes from local storage
         const storedQRCodes = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
+
+        // Update the component's state with the retrieved QR codes
         setQrCodes(storedQRCodes);
     }, []);
 
+
+    // And in the second useEffect hook, the second argument is[qrCodes], this 
+    // tells React that this effect should re - run whenever the qrCodes state changes.
     useEffect(() => {
+        // Store the QR codes in local storage
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(qrCodes));
     }, [qrCodes]);
+    //------------------------------------------------------------------------------------------//
 
     function handleAddQRCode() {
         if (!newQRCodeData || !newDescription) {
+            alert("Please enter a description with a QRCode data and try again.");
             return;
         }
         if (editingIndex === null) {
@@ -30,25 +43,28 @@ function QRcodeCRUD() {
             setQrCodes(newQrCodes);
             setEditingIndex(null);
         }
-        setNewQRCodeData('');
-        setNewDescription('');
+        // setNewQRCodeData('');
+        // setNewDescription('');
     }
+    //------------------------------------------------------------------------------------------//
 
     function handleEditQRCode(index) {
         setEditingIndex(index);
         setNewQRCodeData(qrCodes[index].data);
         setNewDescription(qrCodes[index].description);
     }
+    //------------------------------------------------------------------------------------------//
 
     function handleDeleteQRCode(index) {
         const newQrCodes = [...qrCodes];
         newQrCodes.splice(index, 1);
         setQrCodes(newQrCodes);
     }
+    //------------------------------------------------------------------------------------------//
 
     return (
-        <div>
-            <div>
+        <div className='mylist'>
+            <div className='inputs'>
                 <input
                     type="text"
                     placeholder="QR code data"
@@ -65,16 +81,18 @@ function QRcodeCRUD() {
                     {editingIndex === null ? "Add QR Code" : "Update QR Code"}
                 </button>
             </div>
-            <div>
+          
+            <div className="qrCodes" >
                 {qrCodes.map((qrCode, index) => (
-                    <div key={index}>
+                    <div className="qrCode" key={index}>
                         <QRCode value={qrCode.data} />
                         <p>{qrCode.description}</p>
                         <button onClick={() => handleEditQRCode(index)}>Edit</button>
-                        <button onClick={() => handleDeleteQRCode(index)}>Delete</button>
+                        <button className='del' onClick={() => handleDeleteQRCode(index)}>Delete</button>
                     </div>
                 ))}
             </div>
+          
         </div>
     );
 }

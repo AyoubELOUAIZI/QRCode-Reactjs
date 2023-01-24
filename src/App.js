@@ -1,11 +1,12 @@
 import './App.css';
 import QRcodeCRUD from './components/QRcodeCRUD';
 import QRcodeGenerator from './components/QRcodeGenerator';
+import Header from './components/Header';
 
 function App() {
   return (
     <div className="App">
-    <h1>React QRCode Generator</h1>
+    <Header/>
     <div>
         <QRcodeGenerator />
 

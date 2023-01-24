@@ -1,0 +1,84 @@
+.mylist {
+    background-color: rgb(107, 107, 212);
+   
+
+}
+
+.inputs {
+    background-color: rgb(87, 81, 81);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+
+
+
+}
+
+.inputs input {
+    width: 30%;
+    padding: 1%;
+    border-radius: 20px;
+    margin: 1%;
+    font-size: 100%;
+
+}
+
+.inputs button {
+    font-size: 100%;
+    padding: 1%;
+    border-radius: 20px;
+    border: none;
+    background-color: green;
+    color: #fff;
+
+}
+
+.inputs button:hover {
+    cursor: pointer;
+    background-color: rgb(8, 97, 8);
+}
+
+
+
+.qrCodes {
+    background-color: rgb(37, 73, 36);
+    margin-bottom: 6%;
+
+}
+
+.qrCode {
+    background-color: #fff;
+    border: 1px black solid;
+    width: 45%;
+    margin: 1%;
+    display: inline-block;
+    padding: 1%;
+    border-radius: 20px;
+    color: black;
+    font-size: 100%;
+}
+
+.qrCode button {
+    font-size: 100%;
+    padding: 1%;
+    width: 20%;
+    border-radius: 20px;
+    border: none;
+    background-color: green;
+    color: #fff;
+    margin: 1%;
+
+}
+
+.qrCode button:hover {
+
+    cursor: pointer;
+    background-color: rgb(8, 97, 8);
+}
+
+.qrCode button.del {
+    background-color: red;
+}
+.qrCode button.del:hover {
+    background-color: rgb(112, 10, 10);
+}
